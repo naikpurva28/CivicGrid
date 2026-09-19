@@ -11,7 +11,12 @@ export default function Navbar() {
   // Hide navbar on login page
   if (pathname === '/') return null;
   
-  const isAuthority = pathname.startsWith('/triage') || pathname === '/verify-resolve';
+  const isAuthority = 
+    pathname.startsWith('/triage') || 
+    pathname === '/verify-resolve' || 
+    pathname === '/active-tickets' || 
+    pathname === '/dashboard' || 
+    pathname === '/alerts';
 
   return (
     <nav style={{
