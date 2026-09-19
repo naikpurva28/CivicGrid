@@ -84,8 +84,10 @@ export async function POST(req) {
       targetSLA = isUrgent ? 'Within 4 Hours' : 'Within 24 Hours';
     }
 
-    const newId = `CIV-2026-${Math.floor(100 + Math.random() * 900)}`;
+    const newId = body.id || `CIV-2026-${Math.floor(100 + Math.random() * 900)}`;
     const nowStr = new Date().toLocaleString();
+    const resolvedWard = body.ward || "Ward 4";
+    const resolvedPrecinct = body.precinct || `${resolvedWard} Sector B`;
 
     const newIssue = {
       id: newId,
@@ -94,16 +96,16 @@ export async function POST(req) {
       title: title || `${type} Infrastructure Report`,
       description,
       location,
-      address: location.split(',')[0] || location,
-      ward: "Ward 4",
-      precinct: "Ward 4 Sector B",
+      address: body.address || location.split(',')[0] || location,
+      ward: resolvedWard,
+      precinct: resolvedPrecinct,
       latitude,
       longitude,
       gpsAccuracy,
       gpsLockStatus: "Active Lock",
-      priorityScore,
-      status: isUrgent ? "Flagged Urgent" : "Submitted",
-      impact: isUrgent ? "Critical Hazard" : "Pending Review",
+      priorityScore: body.priorityScore || priorityScore,
+      status: body.status || (isUrgent ? "Flagged Urgent" : "Submitted"),
+      impact: body.impact || (isUrgent ? "Critical Hazard" : "Pending Review"),
       confirmations: 0,
       time: "Just now",
       update: "Awaiting Triage Inspection",
@@ -115,17 +117,17 @@ export async function POST(req) {
       photoAfter: body.photoAfter || null,
       resolvedAt: body.resolvedAt || null,
       verification: body.verification || null,
-      department,
-      assignedUnit: "Unassigned",
-      crewInitials: "--",
-      targetSLA,
-      jurisdiction: "Ward 4",
+      department: body.department || department,
+      assignedUnit: body.assignedUnit || "Unassigned",
+      crewInitials: body.crewInitials || "--",
+      targetSLA: body.targetSLA || targetSLA,
+      jurisdiction: body.jurisdiction || resolvedWard,
       isUrgent,
-      history: [
+      history: body.history || [
         { status: isUrgent ? "Flagged Urgent" : "Submitted", time: nowStr, detail: description || "Report submitted by citizen with active GPS coordinates.", icon: "✓", active: true }
       ],
-      reportedBy: "citizen",
-      date: nowStr
+      reportedBy: body.reportedBy || "citizen",
+      date: body.date || nowStr
     };
 
     db.issues.unshift(newIssue);
