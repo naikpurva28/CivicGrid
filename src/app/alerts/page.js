@@ -654,23 +654,7 @@ export default function AlertsActivityPage() {
               </div>
 
             </div>
-
-            {/* Quick Link back to Authority Console */}
-            <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '12px', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <div>
-                <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#0f3b7a' }}>Authority Dispatch Console</div>
-                <div style={{ fontSize: '0.72rem', color: '#64748b' }}>Switch back to municipal officer operations</div>
-              </div>
-              <Link 
-                href="/triage"
-                style={{ padding: '0.4rem 0.85rem', background: '#0f3b7a', color: 'white', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 700, textDecoration: 'none' }}
-              >
-                Go to Triage →
-              </Link>
-            </div>
-
           </div>
-
         </div>
 
         {/* Bottom Mobile Bar Mock */}
@@ -700,7 +684,6 @@ export default function AlertsActivityPage() {
         <div style={{ display: 'flex', gap: '1.5rem' }}>
           <Link href="#" style={{ color: '#64748b', textDecoration: 'none' }}>Public Ticker</Link>
           <Link href="#" style={{ color: '#64748b', textDecoration: 'none' }}>Accessibility (WCAG 2.1)</Link>
-          <Link href="/triage" style={{ color: '#1d4ed8', fontWeight: 700, textDecoration: 'none' }}>Agency Portal</Link>
         </div>
       </footer>
 

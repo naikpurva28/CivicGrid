@@ -141,20 +141,10 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Quick Portal Switcher / Logout */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderLeft: '1px solid #e2e8f0', paddingLeft: '0.75rem' }}>
-          {isAuthority ? (
-            <Link href="/overview" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} title="Switch to Citizen View">
-              Citizen View
-            </Link>
-          ) : (
-            <Link href="/triage" style={{ fontSize: '0.75rem', color: 'var(--panel-blue)', fontWeight: 600, textDecoration: 'none' }} title="Switch to Authority Mode">
-              Authority View
-            </Link>
-          )}
-          <span style={{ color: '#cbd5e1' }}>|</span>
-          <Link href="/" style={{ fontSize: '0.75rem', color: '#94a3b8', textDecoration: 'none' }}>
-            Exit
+        {/* Logout */}
+        <div style={{ display: 'flex', alignItems: 'center', borderLeft: '1px solid #e2e8f0', paddingLeft: '0.75rem' }}>
+          <Link href="/" style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600, textDecoration: 'none' }} title="Log out">
+            Log out
           </Link>
         </div>
       </div>
