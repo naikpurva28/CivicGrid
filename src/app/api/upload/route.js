@@ -33,10 +33,7 @@ export async function POST(req) {
     // Determine extension
     let ext = '.jpg';
     if (file.name && file.name.includes('.')) {
-      const parsedExt = path.extname(file.name).toLowerCase();
-      if (['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg'].includes(parsedExt)) {
-        ext = parsedExt;
-      }
+      ext = path.extname(file.name).toLowerCase() || '.jpg';
     }
 
     const safeIssueId = issueId ? issueId.toString().replace(/[^a-zA-Z0-9_-]/g, '_') : 'issue';

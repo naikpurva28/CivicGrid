@@ -245,7 +245,7 @@ export default function ReportWizard() {
 
               {photos.length === 0 && (
                 <label style={{ border: '2px dashed var(--panel-blue)', borderRadius: '8px', background: '#eff6ff', height: '160px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--panel-blue)', cursor: 'pointer' }}>
-                  <input type="file" accept="image/*" style={{ display: 'none' }} onChange={(e) => handleFileSelect(e, 'Primary Angle')} />
+                  <input type="file" style={{ display: 'none' }} onChange={(e) => handleFileSelect(e, 'Primary Angle')} />
                   <span style={{ fontSize: '1.8rem', marginBottom: '0.25rem' }}>📷</span>
                   <span style={{ fontWeight: 700, fontSize: '0.95rem' }}>Upload Incident Photo</span>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>Primary Damage View</span>
@@ -254,7 +254,7 @@ export default function ReportWizard() {
 
               {photos.length >= 1 && photos.length < 2 && (
                 <label style={{ border: '2px dashed #cbd5e1', borderRadius: '8px', background: '#f8fafc', height: '160px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--panel-blue)', cursor: 'pointer' }}>
-                  <input type="file" accept="image/*" style={{ display: 'none' }} onChange={(e) => handleFileSelect(e, 'Add Context Angle')} />
+                  <input type="file" style={{ display: 'none' }} onChange={(e) => handleFileSelect(e, 'Add Context Angle')} />
                   <span style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>+</span>
                   <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>Add Context Angle</span>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>Side profile or wide shot</span>
@@ -263,7 +263,7 @@ export default function ReportWizard() {
 
               {photos.length >= 1 && photos.length < 3 && (
                 <label style={{ border: '2px dashed #e2e8f0', borderRadius: '8px', background: '#f8fafc', height: '160px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', cursor: 'pointer' }}>
-                  <input type="file" accept="image/*" style={{ display: 'none' }} onChange={(e) => handleFileSelect(e, 'Optional Close-up')} />
+                  <input type="file" style={{ display: 'none' }} onChange={(e) => handleFileSelect(e, 'Optional Close-up')} />
                   <span style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>+</span>
                   <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>Optional Close-up</span>
                   <span style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>Measurement or landmark</span>

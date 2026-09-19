@@ -292,7 +292,6 @@ export default function VerifyResolveWorkspace() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <input 
                     type="file" 
-                    accept="image/*" 
                     ref={fileInputRef} 
                     onChange={handleAfterFileUpload} 
                     style={{ display: 'none' }} 
