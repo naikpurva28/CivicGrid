@@ -12,8 +12,6 @@ export default function Navbar() {
   if (pathname === '/') return null;
   
   const isAuthority = pathname.startsWith('/triage') || pathname === '/verify-resolve';
-  const isAlerts = pathname === '/alerts';
-  const unreadCount = notifications.filter(n => !n.read).length || 2;
 
   return (
     <nav style={{
@@ -76,15 +74,12 @@ export default function Navbar() {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '1.5rem', flex: 1.2 }}>
         {/* Nav Links */}
         {!isAuthority && (
-          <div style={{ display: 'flex', gap: '1.25rem', fontSize: '0.9rem', fontWeight: 600 }}>
-            <Link href="/overview" style={{ color: pathname === '/overview' ? 'var(--panel-blue-dark)' : 'var(--text-secondary)', textDecoration: 'none' }}>
+          <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.9rem', fontWeight: 600 }}>
+            <Link href="/overview" style={{ color: pathname === '/overview' ? 'var(--panel-blue-dark)' : 'var(--text-secondary)', fontWeight: pathname === '/overview' ? 700 : 600, textDecoration: 'none' }}>
               Overview
             </Link>
-            <Link href="/report" style={{ color: pathname === '/report' ? 'var(--panel-blue-dark)' : 'var(--text-secondary)', textDecoration: 'none' }}>
+            <Link href="/report" style={{ color: pathname === '/report' ? 'var(--panel-blue-dark)' : 'var(--text-secondary)', fontWeight: pathname === '/report' ? 700 : 600, textDecoration: 'none' }}>
               Report Issue
-            </Link>
-            <Link href="/alerts" style={{ color: isAlerts ? 'var(--panel-blue)' : 'var(--text-secondary)', fontWeight: isAlerts ? 700 : 600, borderBottom: isAlerts ? '2px solid var(--panel-blue)' : 'none', paddingBottom: isAlerts ? '2px' : 0, textDecoration: 'none' }}>
-              Alerts
             </Link>
           </div>
         )}
@@ -95,42 +90,6 @@ export default function Navbar() {
             GRID ONLINE: 99.4% SLA
           </div>
         )}
-
-        {/* Top-Right Alert Component (Bell with Red Badge) -> Opens /alerts (Page 3) */}
-        <Link 
-          href="/alerts" 
-          id="top-right-alert-btn"
-          title="Open Civic Activity & Report Updates (Alerts)"
-          style={{ 
-            position: 'relative', 
-            cursor: 'pointer', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            width: '36px',
-            height: '36px',
-            borderRadius: '50%',
-            background: isAlerts ? '#eff6ff' : 'transparent',
-            color: isAlerts ? 'var(--panel-blue-dark)' : 'var(--text-secondary)',
-            textDecoration: 'none',
-            transition: 'background-color 0.2s'
-          }}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-          </svg>
-          <div style={{ 
-            position: 'absolute', 
-            top: '5px', 
-            right: '6px', 
-            width: '8px', 
-            height: '8px', 
-            background: '#dc2626', 
-            borderRadius: '50%', 
-            border: '2px solid white' 
-          }}></div>
-        </Link>
 
         {/* User Profile Avatar */}
         <div style={{ width: '36px', height: '36px', borderRadius: '50%', overflow: 'hidden', border: '1px solid #cbd5e1' }}>
